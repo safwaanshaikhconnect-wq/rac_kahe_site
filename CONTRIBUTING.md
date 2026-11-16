@@ -17,10 +17,10 @@ Welcome to the **RAC KAHE** website project! Whether you are updating event desc
 If you haven't set up the repository on your computer yet:
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<YOUR_ORGANIZATION_OR_USERNAME>/rotaract-site.git
+git clone https://github.com/safwaanshaikhconnect-wq/rac_kahe_site.git
 
 # 2. Navigate into the project folder
-cd rotaract-site
+cd rac_kahe_site
 
 # 3. Install project dependencies
 npm install

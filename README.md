@@ -21,8 +21,8 @@
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<YOUR_ORGANIZATION_OR_USERNAME>/rotaract-site.git
-cd rotaract-site
+git clone https://github.com/safwaanshaikhconnect-wq/rac_kahe_site.git
+cd rac_kahe_site
 ```
 
 ### 2. Install dependencies
