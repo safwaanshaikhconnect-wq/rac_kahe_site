@@ -1,26 +1,187 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ivory: var(--text-ivory);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-cranberry: var(--cranberry);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Rich Navy & Gold Theme */
+  --background: #050B1A;
+  --surface: #0B1730;
+  --surface-2: #13264D;
+
+  --foreground: #F5F1E6;
+  --text-ivory: #F5F1E6;
+  --muted-foreground: #A9B4C8;
+
+  --gold: #D4A62A;
+  --gold-light: #F1D98B;
+
+  /* Cranberry strictly for tiny accents (<= 5%) */
+  --cranberry: #D41B5C;
+
+  --card: #0B1730;
+  --card-foreground: #F5F1E6;
+
+  --popover: #0B1730;
+  --popover-foreground: #F5F1E6;
+
+  --primary: #D4A62A;
+  --primary-foreground: #050B1A;
+
+  --secondary: #13264D;
+  --secondary-foreground: #F5F1E6;
+
+  --muted: #0B1730;
+
+  --accent: #D4A62A;
+  --accent-foreground: #050B1A;
+
+  --border: rgba(245, 241, 230, 0.08);
+  --border-gold: rgba(212, 166, 42, 0.25);
+  --input: rgba(245, 241, 230, 0.12);
+  --ring: #D4A62A;
+
+  --radius: 0.375rem;
+}
+
+.dark {
+  --background: #050B1A;
+  --surface: #0B1730;
+  --surface-2: #13264D;
+  --foreground: #F5F1E6;
+  --text-ivory: #F5F1E6;
+  --muted-foreground: #A9B4C8;
+  --gold: #D4A62A;
+  --gold-light: #F1D98B;
+  --cranberry: #D41B5C;
+  --card: #0B1730;
+  --card-foreground: #F5F1E6;
+  --popover: #0B1730;
+  --popover-foreground: #F5F1E6;
+  --primary: #D4A62A;
+  --primary-foreground: #050B1A;
+  --secondary: #13264D;
+  --secondary-foreground: #F5F1E6;
+  --muted: #0B1730;
+  --accent: #D4A62A;
+  --accent-foreground: #050B1A;
+  --border: rgba(245, 241, 230, 0.08);
+  --border-gold: rgba(212, 166, 42, 0.25);
+  --input: rgba(245, 241, 230, 0.12);
+  --ring: #D4A62A;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    color-scheme: dark;
+    background-color: var(--background);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), sans-serif;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Editorial display typography */
+.font-display {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.04em;
 }
+
+/* Fluid clamp for oversized editorial headlines */
+.hero-headline {
+  font-size: clamp(2.1rem, 7.2vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+@media (max-width: 380px) {
+  .hero-headline {
+    font-size: 1.95rem;
+    line-height: 1.0;
+  }
+}
+
+/* Photo overlays: navy gradient stronger at bottom & left so text is legible and faces stay bright */
+.hero-navy-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 11, 26, 0.92) 0%,
+    rgba(5, 11, 26, 0.74) 40%,
+    rgba(5, 11, 26, 0.35) 75%,
+    rgba(5, 11, 26, 0.18) 100%
+  );
+}
+
+.hero-bottom-fade {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(5, 11, 26, 0.65) 55%,
+    var(--background) 100%
+  );
+}
+
+/* Seamless infinite photo marquee */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 42s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+

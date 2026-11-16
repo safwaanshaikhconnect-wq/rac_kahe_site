@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Obsidian
+.obsidian/
+
+# Local review screenshots
+/*-desktop.png
+/*-mobile-360.png
+/*-after.png
+
+# Raw/unprocessed assets directory (public/assets is used for web assets)
+/assets/
+
