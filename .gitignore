@@ -46,6 +46,7 @@ next-env.d.ts
 # Local review screenshots
 /*-desktop.png
 /*-mobile-360.png
+/*-mobile.png
 /*-after.png
 
 # Raw/unprocessed assets directory (public/assets is used for web assets)

@@ -88,27 +88,27 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
-        {/* District 3206 Logo & Club Lockup */}
+        {/* Main Club Logo & Club Lockup */}
         <Link
           href="/"
-          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]"
-          aria-label="Rotaract District 3206 — Rotaract KAHE Home"
+          className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]"
+          aria-label="Rotaract Club of Karpagam Academy of Higher Education — District 3206"
         >
-          <div className="relative h-7 sm:h-8 w-auto shrink-0 flex items-center">
+          <div className="relative h-9 sm:h-10 md:h-11 w-auto shrink-0 flex items-center">
             <Image
-              src="/assets/district-3206-logo.png"
-              alt="District 3206 Logo"
-              width={140}
-              height={32}
-              className="h-7 sm:h-8 w-auto object-contain brightness-110"
+              src="/assets/main_logo.png"
+              alt="Rotaract Club of Karpagam Academy of Higher Education Logo"
+              width={130}
+              height={48}
+              className="h-9 sm:h-10 md:h-11 w-auto object-contain brightness-110 group-hover:brightness-125 transition-all"
               priority
             />
           </div>
-          <div className="flex flex-col">
-            <span className="text-xs sm:text-sm font-bold tracking-tight text-[var(--foreground)] group-hover:text-[var(--gold-light)] transition-colors leading-none">
-              Rotaract KAHE
+          <div className="flex flex-col justify-center max-w-[210px] xs:max-w-[260px] sm:max-w-none">
+            <span className="text-xs sm:text-sm font-bold tracking-tight text-[var(--foreground)] group-hover:text-[var(--gold-light)] transition-colors leading-tight">
+              Rotaract Club of <span className="inline lg:block xl:inline">Karpagam Academy of Higher Education</span>
             </span>
-            <span className="text-[10px] sm:text-[11px] font-medium tracking-wide uppercase text-[var(--muted-foreground)] mt-1 leading-none">
+            <span className="text-[10px] sm:text-[11px] font-medium tracking-wide uppercase text-[var(--gold)] mt-0.5 leading-none">
               District 3206
             </span>
           </div>
